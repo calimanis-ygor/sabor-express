@@ -1,4 +1,9 @@
-print("""
+import os
+
+
+def exibir_nome_app():
+    print(
+        """
 ╭━━━╮╱╱╭╮╱╱╱╱╱╱╱╭━━━╮
 ┃╭━╮┃╱╱┃┃╱╱╱╱╱╱╱┃╭━━╯
 ┃╰━━┳━━┫╰━┳━━┳━╮┃╰━━┳╮╭┳━━┳━┳━━┳━━┳━━╮
@@ -7,23 +12,40 @@ print("""
 ╰━━━┻╯╰┻━━┻━━┻╯╱╰━━━┻╯╰┫╭━┻╯╰━━┻━━┻━━╯
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱┃┃
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯
-""")
+"""
+    )
 
-print('1. Cadastrar restaurante')
-print('2. Listar restaurante')
-print('3. Ativar restaurante')
-print('4. Sair\n')
 
-opcao_escolhida = int(input('Escolha uma opção: '))
-print(f'Você escolheu a opção {opcao_escolhida}')
-print(type(opcao_escolhida))
+def exibir_opcoes():
+    print("1. Cadastrar restaurante")
+    print("2. Listar restaurante")
+    print("3. Ativar restaurante")
+    print("4. Sair\n")
 
-if(opcao_escolhida == 1):
-    nome_restaurante = input('Digite o nome do restaurante: \n')
-    print(f'O restaurante {nome_restaurante} foi cadastrado com sucesso')
-elif (opcao_escolhida == 2):
-     print('Listar restaurantes')
-elif (opcao_escolhida == 3):
-     print('Listar restaurantes')
-else:
-     print('Encerrando o programa!')
+
+def finalizar_app():
+    os.system("cls")  # no mac e linux 'clear'
+    print("Encerrando a aplicação\n")
+
+
+def escolher_opcao():
+    opcao_escolhida = int(input("Escolha uma opção: "))
+
+    if opcao_escolhida == 1:
+        print("Cadastrar restaurante")
+    elif opcao_escolhida == 2:
+        print("Listar restaurantes")
+    elif opcao_escolhida == 3:
+        print("Listar restaurantes")
+    else:
+        finalizar_app()
+
+
+def main():
+    exibir_nome_app()
+    exibir_opcoes()
+    escolher_opcao()
+
+
+if __name__ == "__main__":
+    main()
